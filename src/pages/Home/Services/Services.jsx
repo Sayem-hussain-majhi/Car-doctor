@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Suspense, lazy, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 const ServicesCard = lazy(()=> import("./ServicesCard"))
 const DefaultBtn = lazy(()=> import("../../../Shared/DefaultBtn"))
 const Loading = lazy(() => import('../../../Shared/Loading'))
@@ -8,9 +10,12 @@ const HeadingText = lazy(() => import('../../../Shared/HeadingText'))
 
 const Services = () => {
     const [services, setServices] = useState([])
+    const id = useParams()
+    console.log(id)
+   
 
     useEffect(() => {
-        axios('services.json')
+        axios('http://localhost:3000/services')
             .then(res => {
                 setServices(res.data)
             })
@@ -27,7 +32,7 @@ const Services = () => {
                     {
                         services?.map(service =>
                             <>
-                                <ServicesCard key={service._id} service={service} />
+                                <ServicesCard key={service._id} service={service}  />
                             </>
 
                         )

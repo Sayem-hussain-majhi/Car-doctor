@@ -7,7 +7,8 @@ const HeadingText = lazy(()=> import("../../../Shared/HeadingText"))
 
 
 const OurFacility = () => {
-    console.log(FacilityInfo)
+    // console.log(FacilityInfo)
+    
     return (
         <div className="mt-20 mb-36">
             <HeadingText subHeading={'Core Features'} heading={'Why Choose Us'} description={`the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. `}/>

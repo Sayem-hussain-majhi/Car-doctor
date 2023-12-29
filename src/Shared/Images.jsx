@@ -13,6 +13,10 @@ import banner6 from '../assets/images/banner/6.jpg'
 import parts from '../assets/images/about_us/parts.jpg'
 import person from '../assets/images/about_us/person.jpg'
 
+// login
+import login from '../assets/images/login/login.svg'
+
+
 export const images = {
     logo,
     banner1,
@@ -23,4 +27,5 @@ export const images = {
     banner6,
     parts,
     person,
+    login,
 }
