@@ -4,7 +4,7 @@ const TeamInfo = [
     {
         'name': 'Sayem Hussain',
         'role': 'Engin expert',
-        'img': `${images?.banner1}`,
+        'img': `${images?.team1}`,
         'socialIcons':[
             {
                 'facebook':'https://www.facebook.com'
@@ -14,12 +14,12 @@ const TeamInfo = [
     {
         'name': 'Sayem Hussain',
         'role': 'Engin expert',
-        'img': `${images?.banner2}`,
+        'img': `${images?.team2}`,
     },
     {
         'name': 'Sayem Hussain',
         'role': 'Engin expert',
-        'img': `${images?.banner1}`,
+        'img': `${images?.team3}`,
     }
 ]
 

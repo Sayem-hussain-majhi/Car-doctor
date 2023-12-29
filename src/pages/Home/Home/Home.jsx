@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+const OurProducts = lazy(()=> import("../OurProducts/OurProducts"))
 const CustomerFeedback = lazy(()=> import("../CustomerFeedback/CustomerFeedback"))
 const OurFacility = lazy(()=> import("../OurFacility/OurFacility"))
 const Services = lazy(() => import('../Services/Services'));
@@ -18,6 +19,7 @@ const Home = () => {
                 <About />
                 <Services />
                 <Address />
+                <OurProducts />
                 <OurTeam />
                 <OurFacility />
                 <CustomerFeedback />

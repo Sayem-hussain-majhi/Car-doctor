@@ -1,10 +1,63 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
+import { Icon } from '@iconify/react';
+import { images } from '../../Shared/Images';
+const Loading = lazy(() => import('../../Shared/Loading'))
 
 const Signup = () => {
     return (
-        <div>
-            This is Signup Page
-        </div>
+        <Suspense fallback={<Loading />}>
+            <main className='flex flex-row-reverse mx-auto w-full '>
+                <div className="hero  bg-base-100">
+                    <div className="hero-content flex-col gap-28 lg:flex-row-reverse">
+                        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <h1 className="text-2xl font-bold text-center pt-8">Sign Up</h1>
+                            <form className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" placeholder="Name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="email" placeholder="email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" placeholder="password" className="input input-bordered" required />
+                                  
+                                </div>
+                                <div className="form-control mt-6">
+                                    <button className="btn bg-[#FF3811] text-white">Signup</button>
+                                </div>
+
+                                <div className="divider">OR</div>
+
+                                {/* icons */}
+                                <div className='text-3xl flex justify-evenly p-5'>
+                                    <Icon 
+                                    icon="logos:facebook" className='cursor-pointer'/>
+                                    <Icon icon="devicon:linkedin" className='cursor-pointer'/>
+                                    <Icon 
+                                    icon="devicon:google" className='cursor-pointer'/>
+                                </div>
+
+                                <article>
+                                    <p>All ready have an account  <span className='text-[#FF3811]'>Login</span> </p>
+                                </article>
+                            </form>
+                        </div>
+                        <div className="text-center lg:text-left">
+                            <img src={images.login} alt="" />
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </Suspense>
     );
 };
 
