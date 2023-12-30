@@ -11,12 +11,11 @@ const OurProducts = () => {
             <div className='grid lg:grid-cols-3 grid-cols-1 gap-5'>
                 {
                     ProductsInfo?.map(p => <>
-                        <div className='w-80 h-52  m-5 text-center bg-slate-400 p-5 rounded-lg'>
-                            <div className='w-1/3 mx-auto '>
+                        <div className='w-80 h-96  m-5 text-center border-2 p-5 cursor-pointer rounded-lg'>
+                            <div className='w-4/5  rounded-lg py-8 px-12 mb-9 mx-auto bg-[#F3F3F3]'>
                                 <img className='w-full' src={p.img} alt="" />
                             </div>
-                            <div>
-                                <p>icon</p>
+                            <div className='flex justify-center'>
                                <Stars stars={p.rating} />
                             </div>
                             <h4 className="text-3xl font-bold">{p.name}</h4>
