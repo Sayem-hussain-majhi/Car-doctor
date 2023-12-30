@@ -21,9 +21,10 @@ const ServicesCard = ({ service }) => {
 
     return (
         <div>
-            <div className="card  shadow-lg my-5">
+            <div className="card h-[440px]  shadow-lg my-5">
                 <figure>
-                    <img src={service?.img} alt="Shoes" /></figure>
+                    <img src={service?.img} alt="Shoes" />
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title text-[#444] font-bold">{service?.title}</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>

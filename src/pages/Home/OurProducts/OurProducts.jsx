@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import ProductsInfo from './OurProductsInfo';
-import Stars from '../../../Components/Stars';
+const Stars = lazy(()=> import('../../../Components/Stars'))
+const DefaultBtn = lazy(()=> import('../../../Shared/DefaultBtn'))
 const HeadingText = lazy(()=> import('../../../Shared/HeadingText'))
 
 const OurProducts = () => {
@@ -24,6 +25,11 @@ const OurProducts = () => {
                     </>)
                 }
             </div>
+
+            <div className="flex justify-center mb-10">
+               <DefaultBtn 
+                styles={'text-[#FF3811] hover:bg-[#FF3811] hover:text-white border-[#FF3811]   border-2 text-center'} text="More Products" />
+               </div>
         </main>
     );
 };
