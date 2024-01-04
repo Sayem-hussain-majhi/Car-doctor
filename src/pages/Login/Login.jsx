@@ -1,9 +1,25 @@
 import React, { Suspense, lazy } from 'react';
 import { Icon } from '@iconify/react';
 import { images } from '../../Shared/Images';
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 const Loading = lazy(() => import('../../Shared/Loading'))
 
 const Login = () => {
+    const {googleLogin} = useContext(AuthContext)
+    const navigate = useNavigate()
+
+
+    // google Login
+    const handleGoole =()=>{
+        googleLogin()
+        navigate('/')
+    }
+
+
+
+
     return (
         <Suspense fallback={<Loading />}>
             <main className='flex flex-row-reverse mx-auto w-full '>
@@ -39,6 +55,7 @@ const Login = () => {
                                     icon="logos:facebook" className='cursor-pointer'/>
                                     <Icon icon="devicon:linkedin" className='cursor-pointer'/>
                                     <Icon 
+                                    onClick={handleGoole}
                                     icon="devicon:google" className='cursor-pointer'/>
                                 </div>
 
