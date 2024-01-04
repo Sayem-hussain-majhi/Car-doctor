@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+const MyBookings = lazy(()=> import("../pages/MyBookings/MyBookings"))
 const Login = lazy(()=> import("../pages/Login/Login"))
 const Signup = lazy(()=> import("../pages/Signup/Signup"))
 const Main = lazy(()=> import("../Layout/Main"))
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
           element: <About />
         },
         {
+          path:'/services',
+          element: <Services />,
+          loader: ({params})=> fetch(`http://localhost:3000/services`)
+        },
+        {
           path:'/services/:id',
           element: <Services />,
           loader: ({params})=> fetch(`http://localhost:3000/services/${params.id}`)
@@ -46,9 +52,11 @@ const router = createBrowserRouter([
           path:'/signup',
           element: <Signup />
         },
-      
-        
-      ],
+        {
+          path:'/myBookings',
+          element: <MyBookings />
+        },
+      ]
       
     },
   ]);

@@ -1,15 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { images } from '../../Shared/Images'
 import DefaultBtn from "../DefaultBtn";
 import ActiveRoute from "../../Route/ActiveRoute";
 import { Icon } from '@iconify/react';
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Navbar = () => {
+  const [serviceData, setServiceData] = useState()
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    axios('http://localhost:3000/services')
+    .then(res => setServiceData(res.data))
+  },[])
+
+  const handleNavigate =()=>{
+    const id = serviceData.slice(0,1).map(data =>data._id)
+    navigate('/services/'+id)
+  }
+
+
   const navLink = <>
     <ActiveRoute to='/'>Home</ActiveRoute>
     <ActiveRoute to='/about'>About</ActiveRoute>
-    <ActiveRoute to='/services'>Services</ActiveRoute>
-    <ActiveRoute to='/blog'>Blog</ActiveRoute>
+    <button onClick={()=>handleNavigate()}><ActiveRoute to='/services'>Services</ActiveRoute></button>
+    <ActiveRoute to='/myBookings'>My Bookings</ActiveRoute>
     <ActiveRoute to='/contact'>Contact</ActiveRoute>
     <ActiveRoute to='/login'>Login</ActiveRoute>
     <ActiveRoute to='/signup'>Signup</ActiveRoute>

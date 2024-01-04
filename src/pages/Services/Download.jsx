@@ -20,13 +20,16 @@ const Download = () => {
                             </div>
                         </div>
                         <div className='btn bg-[#FF3811]'>
-                            <Icon icon="ph:arrow-right" color='#fff' />
+                            <a href="https://drive.google.com/file/d/1_G75bXpsC_nPK35PCo5H8DFafQF-bJts/view?usp=sharing" download={'sayem resumi'}>
+                            <Icon href=''  icon="ph:arrow-right" color='#fff' />
+                            </a>
                         </div>
                     </div>
 
                     <div className='flex justify-between items-center'>
                         <div className='flex justify-between items-center'>
-                            <Icon icon="mdi:file" />
+                            <Icon href='https://drive.google.com/file/d/1_G75bXpsC_nPK35PCo5H8DFafQF-bJts/view?usp=sharing' 
+                            Download='sayem resumi' icon="mdi:file" />
                             <div className='ml-2'>
                                 <h4 className='text-lg font-bold'>Company Details</h4>
                                 <p className='text-xs'>Download</p>

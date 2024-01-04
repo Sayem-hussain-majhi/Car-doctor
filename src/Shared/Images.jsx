@@ -17,6 +17,15 @@ import product4 from '../assets/images/products/4.png'
 import product5 from '../assets/images/products/5.png'
 import product6 from '../assets/images/products/6.png'
 
+// icons
+import check from '../assets/icons/check.svg'
+import deliveryt from '../assets/icons/deliveryt.svg'
+import group from '../assets/icons/group.svg'
+import personicon from '../assets/icons/person.svg'
+import quote from '../assets/icons/quote.svg'
+import Wrench from '../assets/icons/Wrench.svg'
+
+
 // Team
 import team1 from '../assets/images/team/1.jpg'
 import team2 from '../assets/images/team/2.jpg'
@@ -29,8 +38,8 @@ import person from '../assets/images/about_us/person.jpg'
 // login
 import login from '../assets/images/login/login.svg'
 
-// error
-// import error from '../assets/images/'
+// user
+import user1 from '../assets/userImg/user1.jpg'
 
 export const images = {
     logo,
@@ -48,8 +57,15 @@ export const images = {
     product4,
     product5,
     product6,
+    quote,
+    check,
+    deliveryt,
+    group,
+    personicon,
+    Wrench,
     login,
     team1,
     team2,
     team3,
+    user1,
 }

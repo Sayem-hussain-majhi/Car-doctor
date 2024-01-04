@@ -17,12 +17,12 @@ const RightNav = () => {
     return (
         <div className='p-5 space-y-3'>
             <h2 className="text-3xl font-bold  mt-6 mb-3">Services</h2>
-
+            
             {
                 serviceData?.map(service =>
                  <>    
                    <div className="my-2">
-                   <Link to={`/services/${service?._id}`}>
+                   <Link to={`/services/${service?._id} `}>
                         <div className={`${service?._id === id.id ? 'bg-[#FF3811] flex justify-between py-3 px-3 rounded-md text-white' 
                         : 'flex justify-between hover:bg-[#FF3811] duration-300 rounded-lg py-3 px-3'} `}>
 
