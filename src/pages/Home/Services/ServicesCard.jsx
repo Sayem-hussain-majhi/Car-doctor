@@ -46,4 +46,5 @@ const ServicesCard = ({ service }) => {
 ServicesCard.propTypes = {
     service: PropTypes.string,
 };
+
 export default ServicesCard;

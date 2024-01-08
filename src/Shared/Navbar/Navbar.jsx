@@ -26,7 +26,6 @@ const Navbar = () => {
     <ActiveRoute to='/about'>About</ActiveRoute>
     <button onClick={()=>handleNavigate()}><ActiveRoute to='/services'>Services</ActiveRoute></button>
     <ActiveRoute to='/myBookings'>My Bookings</ActiveRoute>
-    <ActiveRoute to='/contact'>Contact</ActiveRoute>
     <ActiveRoute to='/login'>Login</ActiveRoute>
     <ActiveRoute to='/signup'>Signup</ActiveRoute>
   </>

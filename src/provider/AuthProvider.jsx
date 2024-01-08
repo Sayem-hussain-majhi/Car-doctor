@@ -1,7 +1,10 @@
-import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
+
+
+
 
 
 const provider = new GoogleAuthProvider()
@@ -15,11 +18,18 @@ const AuthProvider = ({ children }) => {
     // social login
     const googleLogin = () => {
             setLoading(true)
-            signInWithPopup(auth , provider)
-            .then(res => {
-                console.log(res.message) 
-            })
-            .catch(error => console.log(error.message))
+           return signInWithPopup(auth , provider)
+    }
+
+
+    // signup
+    const signup = (email, password)=>{
+      return  createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    // signin
+    const login = (email, password)=>{
+       return signInWithEmailAndPassword(auth, email, password)
     }
 
 
@@ -40,6 +50,8 @@ const AuthProvider = ({ children }) => {
         user,
         loading,
         googleLogin,
+        signup,
+        login,
     }
 
     return (

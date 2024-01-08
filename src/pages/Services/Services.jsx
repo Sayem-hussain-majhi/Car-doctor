@@ -22,10 +22,11 @@ const Services = () => {
     }, [])
 
     // handleSaveLocalStorage
-    const handleSaveLocalStorage =(title)=>{
+    const handleSaveLocalStorage =(title, price)=>{
         if(title){
             localStorage.setItem('title', title)
-            console.log(title)
+            localStorage.setItem('price', price)
+            console.log(title, price)
         }
     }
 
@@ -83,7 +84,7 @@ const Services = () => {
                         <Download />
                         <h2 className="text-3xl font-bold my-5">Price : ${singleService?.price}</h2>
                         <Link to={'/checkOut'}>
-                            <button onClick={()=> handleSaveLocalStorage(`${singleService?.title}`)} className="bg-[#FF3811] py-2 px-4 text-white font-semibold rounded">Proceed Checkout</button>
+                            <button onClick={()=> handleSaveLocalStorage(`${singleService?.title}`, `${singleService?.price}` )} className="bg-[#FF3811] py-2 px-4 text-white font-semibold rounded">Proceed Checkout</button>
                         </Link>
                     </div>
                 </div>
