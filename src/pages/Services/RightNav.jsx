@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import axios from 'axios';
+import { BASE_URL } from '../../config/base_url';
 
 const RightNav = () => {
     const [serviceData, setServiceData] = useState([])
     const id = useParams()
 
     useEffect(() => {
-        axios('http://localhost:3000/services')
+        axios(`${BASE_URL}/services`)
             .then(res => setServiceData(res.data))
     }, [])
 

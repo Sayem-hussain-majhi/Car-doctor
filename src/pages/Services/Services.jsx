@@ -8,6 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import RightNav from "./RightNav";
 import Download from "./Download";
+import { BASE_URL } from "../../config/base_url";
 const Loading = lazy(() => import("../../Shared/Loading"))
 
 
@@ -17,7 +18,7 @@ const Services = () => {
     const { id } = useParams()
    
     useEffect(() => {
-        axios('http://localhost:3000/services')
+        axios(`${BASE_URL}/services`)
             .then(res => setService(res.data))
     }, [])
 

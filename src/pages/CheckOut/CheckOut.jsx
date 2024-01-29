@@ -5,6 +5,7 @@ import Banner from "../../Components/Banner";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { BASE_URL } from "../../config/base_url";
 
 
 const CheckOut = () => {
@@ -32,7 +33,7 @@ const CheckOut = () => {
             date: new Date
         }
 
-        axios.post('http://localhost:3000/bookings', data)
+        axios.post(`${BASE_URL}/bookings`, data)
         .then(res =>{
             Swal.fire({
                 position: "center",

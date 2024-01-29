@@ -1,6 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import { BASE_URL } from "../config/base_url";
 const MyBookings = lazy(()=> import("../pages/MyBookings/MyBookings"))
 const Login = lazy(()=> import("../pages/Login/Login"))
 const Signup = lazy(()=> import("../pages/Signup/Signup"))
@@ -29,12 +30,12 @@ const router = createBrowserRouter([
         {
           path:'/services',
           element: <Services />,
-          loader: ({params})=> fetch(`http://localhost:3000/services`)
+          loader: ({params})=> fetch(`${BASE_URL}/services`)
         },
         {
           path:'/services/:id',
           element: <Services />,
-          loader: ({params})=> fetch(`http://localhost:3000/services/${params.id}`)
+          loader: ({params})=> fetch(`${BASE_URL}/services/${params.id}`)
         },
         {
           path:'/checkOut',

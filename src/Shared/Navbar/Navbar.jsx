@@ -3,31 +3,44 @@ import { images } from '../../Shared/Images'
 import DefaultBtn from "../DefaultBtn";
 import ActiveRoute from "../../Route/ActiveRoute";
 import { Icon } from '@iconify/react';
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { AuthContext } from "../../provider/AuthProvider";
+import { BASE_URL } from "../../config/base_url";
 
 const Navbar = () => {
+  const { user, logout } = useContext(AuthContext)
   const [serviceData, setServiceData] = useState()
   const navigate = useNavigate()
+  console.log(user)
 
-  useEffect(()=>{
-    axios('http://localhost:3000/services')
-    .then(res => setServiceData(res.data))
-  },[])
+  useEffect(() => {
+    axios(`${BASE_URL}/services`)
+      .then(res => setServiceData(res.data))
+  }, [])
 
-  const handleNavigate =()=>{
-    const id = serviceData.slice(0,1).map(data =>data._id)
-    navigate('/services/'+id)
+  const handleNavigate = () => {
+    const id = serviceData.slice(0, 1).map(data => data._id)
+    navigate('/services/' + id)
   }
 
+  const handleLogout =()=>{
+    logout()
+    .then(res => console.log(res))
+  }
 
   const navLink = <>
     <ActiveRoute to='/'>Home</ActiveRoute>
     <ActiveRoute to='/about'>About</ActiveRoute>
-    <button onClick={()=>handleNavigate()}><ActiveRoute to='/services'>Services</ActiveRoute></button>
+    <button onClick={() => handleNavigate()}><ActiveRoute to='/services'>Services</ActiveRoute></button>
     <ActiveRoute to='/myBookings'>My Bookings</ActiveRoute>
-    <ActiveRoute to='/login'>Login</ActiveRoute>
-    <ActiveRoute to='/signup'>Signup</ActiveRoute>
+    {user ? <button onClick={handleLogout} >Logout</button> 
+    : 
+    <>
+      <ActiveRoute to='/login'>Login</ActiveRoute>
+      <ActiveRoute to='/signup'>Signup</ActiveRoute>
+    </>
+    }
   </>
 
   return (

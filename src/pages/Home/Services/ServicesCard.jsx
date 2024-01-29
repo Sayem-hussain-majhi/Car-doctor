@@ -3,12 +3,13 @@ import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from '../../../config/base_url';
 
 const ServicesCard = ({ service }) => {
     const [serviceData, setServiceData] = useState([])
 
     useEffect(() => {
-        axios('http://localhost:3000/services')
+        axios(`${BASE_URL}/services`)
             .then(res => setServiceData(res.data))
     }, [])
 

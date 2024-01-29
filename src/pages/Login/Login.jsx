@@ -4,6 +4,7 @@ import { images } from '../../Shared/Images';
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const Loading = lazy(() => import('../../Shared/Loading'))
 
 const Login = () => {
@@ -13,6 +14,13 @@ const Login = () => {
     // google Login
     const handleGoole = () => {
         googleLogin()
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Signup Successfull",
+            showConfirmButton: false,
+            timer: 1500
+          });
         navigate('/')
     }
 
@@ -27,6 +35,13 @@ const Login = () => {
         login(email, password)
         .then(res => {
             console.log(res)
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "login Successfull",
+                showConfirmButton: false,
+                timer: 1500
+              });
             navigate('/')
         }).catch(error => console.log(error))
     }
